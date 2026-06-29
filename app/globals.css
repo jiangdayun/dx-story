@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #FDFBF7;
+  color: #1a1a1a;
+}
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.font-kaiti {
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "DFKai-SB", serif;
+}
