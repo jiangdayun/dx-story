@@ -4,9 +4,8 @@
 
 https://dx\-story\.vercel\.app/
 
-演示视频：
-
-[6月30日\.mp4](图片和附件/6月30日.mp4)
+飞书阅读链接：
+https://ecnp78wckrvv.feishu.cn/docx/WEhZdOrVoobblLxfAyXceAZDntU?from=from_copylink
 
 产生原因：在处理关系的时候，很容易因为当下的情绪否定整段关系。用这个记录下来开心的、难受的（会引导记录剥离主观情绪的客观事实的表达）、以及自己的顿悟时刻，有情绪日历记录每天的状态来确认这段关系是否消耗自己，和AI聊天 AI会读取过往的记录给出建议
 
@@ -270,7 +269,8 @@ vercel网址：https://vercel\.com/
 
 ## 用supabase做用户登录和数据存储
 
-![13\.png](图片和附件/13.png)
+<img width="1566" height="906" alt="13" src="https://github.com/user-attachments/assets/7123dcd4-7389-4d55-b49e-4092b30a28f5" />
+
 
 Trae 写的代码里它会给一段 SQL 代码，复制这段代码，回到 Supabase 网页。点击左侧菜单的 SQL Editor \(SQL 编辑器\)，新建一个 Query，把代码粘进去，点击绿色的 Run \(运行\)。云端表格就建好了
 
@@ -286,7 +286,8 @@ Trae 会在你的文件夹里生成一个叫 \.env\.local 的文件。你点开�
 
 Nano banana\+自己手搓调整，其实最好是svg，如果不是的话也没关系，当个底图的话注意不能有其他的字
 
-![rose\-frame\.png](图片和附件/rose-frame.png)
+<img width="832" height="1248" alt="rose-frame" src="https://github.com/user-attachments/assets/762e8408-7991-405c-a4a2-2f3164c606d6" />
+
 
 存在public目录下，调整登录界面直到达到自己目标
 
@@ -360,13 +361,15 @@ npm run dev
 
 有的更新需要去supabase SQL editer执行
 
-![4\.png](图片和附件/4.png)
+<img width="1424" height="382" alt="4" src="https://github.com/user-attachments/assets/f6f21ab2-82d4-41b2-88a7-f775d283ea0e" />
+
 
 ## AI接入
 
 https://bigmodel\.cn/apikey/platform
 
-![29\.png](图片和附件/29.png)
+<img width="1586" height="836" alt="29" src="https://github.com/user-attachments/assets/ec7e0d60-a0e9-42e0-8f00-d78318bb1256" />
+
 
 ```Markdown
 我已经配置好了大模型的 API 环境变量，使用的是兼容 OpenAI 格式的智谱 API（`AI_API_KEY` 和 `AI_BASE_URL` 已经在 .env.local 中）。
@@ -381,13 +384,15 @@ https://bigmodel\.cn/apikey/platform
 请一步步实现，先从安装依赖和写后端 API 路由开始吧！
 ```
 
-![3\.png](图片和附件/3.png)
+<img width="1462" height="708" alt="3" src="https://github.com/user-attachments/assets/56c22c35-7346-4617-9f06-f0e3ac5a68b5" />
+
 
 ## 恢复supabase项目
 
 supabase用的免费额度，一段时间不访问为了节约资源就会暂停，再重启项目就好了
 
-![QQ20260629\-104145\.png](图片和附件/QQ20260629-104145.png)
+<img width="2768" height="1490" alt="QQ20260629-104145" src="https://github.com/user-attachments/assets/be282ff8-3761-44b4-9c35-3586dcd28528" />
+
 
 ## 部署
 
@@ -654,9 +659,11 @@ git push -u origin main
 
 https://github\.com/jiangdayun/dx\-story
 
-![1\.png](图片和附件/1.png)
+<img width="2776" height="1492" alt="1" src="https://github.com/user-attachments/assets/d10a4e80-a917-4948-a77e-08d35762912e" />
 
-![2\.png](图片和附件/2.png)
+
+<img width="2782" height="1494" alt="2" src="https://github.com/user-attachments/assets/1b2ebc39-8526-4314-b56f-6f93b01047f7" />
+
 
 找到项目文件夹，右键用终端打开
 
@@ -668,7 +675,8 @@ dir .gitignore
 Get-Content .gitignore
 ```
 
-![4\.png](图片和附件/4%201.png)
+<img width="1544" height="472" alt="4 1" src="https://github.com/user-attachments/assets/364c4155-7d1d-41e6-b501-461ccce7759f" />
+
 
 ```Plain Text
 git init #初始化本地仓库
@@ -679,10 +687,10 @@ git branch -M main #把主分支设成 main
 git remote add origin 仓库网址
 git push -u origin main
 ```
+<img width="840" height="726" alt="5" src="https://github.com/user-attachments/assets/ce2d3bc7-5083-44f0-8633-984f2fac447c" />
 
-![5\.png](图片和附件/5.png)
+<img width="1112" height="1240" alt="6" src="https://github.com/user-attachments/assets/d7707d11-ce81-48ec-b426-d17697284e85" />
 
-![6\.png](图片和附件/6.png)
 
 确认授权就好了，等待终端的回复
 
