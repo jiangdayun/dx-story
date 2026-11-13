@@ -1,8 +1,25 @@
-# 我和我们的切片
+<div align="center">
 
-# 体验地址：
+<h1>我和我们的切片</h1>
+<p><i>dx-story · 情绪记录与关系复盘工具</i></p>
 
-https://dx\-story\.vercel\.app/
+<p>记录高光 / 阵雨 / 顿悟三种时刻，用情绪热力日历回看状态，AI 结合历史记录给出分析</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Next.js-Framework-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white" alt="Supabase">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+</p>
+
+<p>
+  <a href="https://dx-story.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-dx-story.vercel.app-brightgreen?style=flat-square" alt="Live Demo"></a>
+  <img src="https://img.shields.io/github/last-commit/jiangdayun/dx-story?style=flat-square" alt="Last commit">
+  <img src="https://img.shields.io/github/license/jiangdayun/dx-story?style=flat-square" alt="License">
+</p>
+
+</div>
+
 
 飞书阅读链接：
 https://ecnp78wckrvv.feishu.cn/docx/WEhZdOrVoobblLxfAyXceAZDntU?from=from_copylink
