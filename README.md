@@ -13,12 +13,13 @@
 </p>
 
 <p>
-  <a href="https://dx-story.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-dx-story.vercel.app-brightgreen?style=flat-square" alt="Live Demo"></a>
+  <a href="https://dx-story.vercel.app"><img src="https://img.shields.io/static/v1?label=Live%20Demo&message=dx-story.vercel.app&color=brightgreen&style=flat-square&logo=vercel&logoColor=white" alt="Live Demo"></a>
   <img src="https://img.shields.io/github/last-commit/jiangdayun/dx-story?style=flat-square" alt="Last commit">
   <img src="https://img.shields.io/github/license/jiangdayun/dx-story?style=flat-square" alt="License">
 </p>
 
 </div>
+
 
 
 飞书阅读链接：
