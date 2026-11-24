@@ -8,6 +8,9 @@ const aiApiKey = process.env.AI_API_KEY
 const aiBaseUrl = process.env.AI_BASE_URL
 const aiModel = process.env.AI_MODEL || 'glm-4-flash'
 
+// 大模型生成可能超过 Vercel 默认的 10 秒函数超时，这里放宽到平台允许的上限
+export const maxDuration = 60
+
 type ChatMessage = {
   role: 'system' | 'user' | 'assistant'
   content: string
@@ -173,37 +176,39 @@ export async function POST(request: Request) {
         .limit(60),
     ])
 
-    if (recordsRes.error || tagsRes.error || dayStatesRes.error) {
+    if (recordsRes.error) {
       return NextResponse.json(
         {
-          error: '读取用户历史记录失败。',
-          details:
-            recordsRes.error?.message ||
-            tagsRes.error?.message ||
-            dayStatesRes.error?.message,
+          error: `读取用户历史记录失败：${recordsRes.error.message}`,
+          details: recordsRes.error.message,
         },
         { status: 500 }
       )
     }
 
+    // 标签与每日标签状态属于增强信息，读取失败时不让整段对话失败
     const records = (recordsRes.data || []) as RecordRow[]
-    const tags = (tagsRes.data || []) as TagRow[]
-    const dayTagStates = (dayStatesRes.data || []) as DayTagStateRow[]
+    const tags = (tagsRes.error ? [] : tagsRes.data || []) as TagRow[]
+    const dayTagStates = (dayStatesRes.error ? [] : dayStatesRes.data || []) as DayTagStateRow[]
     const userLabel = user.email || user.id
     const openai = new OpenAI({
       apiKey: aiApiKey,
       baseURL: aiBaseUrl,
     })
 
-    const contextMessage: ChatMessage = {
+    // 只发送一条 system 消息：部分大模型（如 Moonshot / Kimi）对多条 system 消息支持不佳，
+    // 会把后面的上下文忽略掉，导致 AI 读不到用户之前记录的内容。
+    const systemMessage: ChatMessage = {
       role: 'system',
       content: [
-        '以下是当前用户的背景信息，请你据此理解对话，但不要机械复述。',
+        buildSystemPrompt(mode, userLabel),
+        '',
+        '以下是这位用户长期记录下来的个人背景，请自然地结合它们来回答（不要逐条复述，也不要假装没有看到）：',
         `用户标识：${userLabel}`,
-        `最近记录：\n${formatRecords(records)}`,
+        `最近记录（越靠前越新）：\n${formatRecords(records)}`,
         `自定义标签：${formatTags(tags)}`,
         `情绪热力图最近标签状态：\n${formatDayTagStates(dayTagStates, tags)}`,
-      ].join('\n\n'),
+      ].join('\n'),
     }
 
     const promptMessages: ChatMessage[] =
@@ -226,11 +231,7 @@ export async function POST(request: Request) {
     const completion = await openai.chat.completions.create({
       model: aiModel,
       temperature: mode === 'inspiration' ? 0.9 : 0.7,
-      messages: [
-        { role: 'system', content: buildSystemPrompt(mode, userLabel) },
-        contextMessage,
-        ...promptMessages,
-      ],
+      messages: [systemMessage, ...promptMessages],
     })
 
     const answer = completion.choices[0]?.message?.content?.trim()
@@ -252,7 +253,12 @@ export async function POST(request: Request) {
   } catch (error) {
     const message = error instanceof Error ? error.message : '未知错误'
     return NextResponse.json(
-      { error: 'AI 对话接口执行失败。', details: message },
+      {
+        error: `AI 调用失败：${message}`,
+        details: message,
+        model: aiModel,
+        baseUrl: aiBaseUrl,
+      },
       { status: 500 }
     )
   }
